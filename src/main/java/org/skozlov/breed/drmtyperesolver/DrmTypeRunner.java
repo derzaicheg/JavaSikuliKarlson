@@ -1,6 +1,4 @@
 package org.skozlov.breed.drmtyperesolver;
-import java.io.IOException;
-
 import org.skozlov.breed.config.TestSettings;
 import org.skozlov.breed.config.TestSettings.PropertyDoesNotExists;
 import org.skozlov.breed.drmtypes.flash.FlashExecutor;
@@ -17,7 +15,7 @@ public class DrmTypeRunner {
 		this.drm = TestSettings.getInstance().getDrmProperty();
 	}
 	
-	public void executeDrmTest() throws IOException{
+	public void executeDrmTest() throws Exception{
 		switch (this.drm) {
 		case PLAYREADY:
 			logger.info("Loading PLAYREADY tests...");

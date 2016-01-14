@@ -1,8 +1,6 @@
 package org.skozlov.breed.drmtypes.flash;
 
-import java.io.IOException;
-
-import org.skozlov.breed.utils.chrome.ChromeHelper;
+import org.skozlov.breed.tests.flash.FlashChromeTest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -10,15 +8,13 @@ public class FlashExecutor {
 	
 	private final static Logger logger = LoggerFactory.getLogger(FlashExecutor.class);
 	
-	public int runTest() throws IOException {
-		ChromeHelper chromeHelper = new ChromeHelper();
-		int exitCode = chromeHelper.getChromeWindow();
-		logger.info(String.format("Opening new chrome windows. Error code is '%d'", exitCode));
-		return exitCode;
+	public void runTest() throws Exception {
+		FlashChromeTest flashChromeTest = new FlashChromeTest();
+		flashChromeTest.runChromeFlashTest();
 	}
 	
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws Exception {
 		FlashExecutor f = new FlashExecutor();
-		System.out.println(f.runTest());
+		f.runTest();
 	}
 }
