@@ -1,32 +1,15 @@
 package org.skozlov.breed.tests.flash;
 
-import java.io.File;
 
 import org.sikuli.script.FindFailed;
-import org.sikuli.script.ImageLocator;
-import org.sikuli.script.ImagePath;
 import org.sikuli.script.Key;
 import org.sikuli.script.ObserveEvent;
 import org.sikuli.script.ObserverCallBack;
 import org.sikuli.script.Screen;
 import org.skozlov.breed.utils.chrome.ChromeHelper;
+import org.skozlov.breed.utils.chrome.ScreenCallBackAdapter;
 
 public class FlashChromeTest {
-	
-	public abstract class ScreenCallBack extends ObserverCallBack {
-		private final Screen screen;
-		
-		public ScreenCallBack(final Screen screen) {
-			this.screen = screen;
-		}
-		
-		@Override
-		public void appeared(final ObserveEvent evt) {
-			this.handle(evt, screen);
-		}
-		
-		public abstract void handle(final ObserveEvent evt, final Screen screen);
-	}
 	
 	public void runChromeFlashTest() throws Exception {
 			ChromeHelper chromeHelper = new ChromeHelper();
@@ -37,15 +20,15 @@ public class FlashChromeTest {
 				s.compare("/src/main/resources/images/chrome_fa/newChrome.png").highlight(1);
 				
 				//s.compare("/src/main/resources/images/chrome_fa/search_chrome.png").highlight(1);
-				s.onAppear("/src/main/resources/images/chrome_fa/search_chrome.png", new ScreenCallBack(s) {
+				s.onAppear("/src/main/resources/images/chrome_fa/search_chrome.png", new ScreenCallBackAdapter(s) {
 
 					@Override
 					public void handle(ObserveEvent evt, Screen screen) {
 						try {
 							screen.click("/src/main/resources/images/chrome_fa/search_chrome.png");
-						} catch (FindFailed e1) {
+						} catch (FindFailed e) {
 							// TODO Auto-generated catch block
-							e1.printStackTrace();
+							e.printStackTrace();
 						}
 						
 					}
