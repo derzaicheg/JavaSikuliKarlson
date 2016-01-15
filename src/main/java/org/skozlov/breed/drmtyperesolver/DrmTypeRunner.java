@@ -2,6 +2,7 @@ package org.skozlov.breed.drmtyperesolver;
 import org.skozlov.breed.config.TestSettings;
 import org.skozlov.breed.config.TestSettings.PropertyDoesNotExists;
 import org.skozlov.breed.drmtypes.flash.FlashExecutor;
+import org.skozlov.breed.drmtypes.widevine.WidevineExecutor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,11 +23,13 @@ public class DrmTypeRunner {
 			break;
 		case WIDEVINE:
 			logger.info("Loading WIDEVINE tests...");
+			WidevineExecutor wvExec = new WidevineExecutor();
+			wvExec.runChromeTest();
 			break;
 		case FLASHACCESS:
 			logger.info("Loading FLASHACCESS tests...");
 			FlashExecutor flashExec = new FlashExecutor();
-			flashExec.runTest();
+			flashExec.runChromeTest();
 			break;
 		default:
 			throw new IllegalArgumentException("DrmProperty does not exists in list of known properties");

@@ -40,7 +40,8 @@ public class FlashChromeTest {
 				s.click("/src/main/resources/images/chrome_fa/edt_player.png");
 				s.type("a", Key.CTRL);
 				s.type(Key.BACKSPACE);
-				s.type("http://lic_acq_url");
+				s.type("http://drmtest2.adobe.com:8080/Content/anonymous.f4v");
+//				s.find("/src/main/resources/images/chrome_fa/wv_chrome_applysetting.png").highlight(1).click();
 				s.click("/src/main/resources/images/chrome_fa/play_player.png");
 			}
 			catch(FindFailed e){
