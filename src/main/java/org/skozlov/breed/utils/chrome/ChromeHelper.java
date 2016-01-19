@@ -7,14 +7,20 @@ import org.apache.commons.exec.DefaultExecutor;
 import org.apache.commons.exec.ExecuteException;
 import org.sikuli.script.FindFailed;
 import org.sikuli.script.Screen;
+import org.skozlov.breed.utils.BrowserErrorCodeValidator;
 
 public class ChromeHelper {
 
 	private static String CHROME_PATH = "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe";
+	BrowserErrorCodeValidator errCodeValidator;
+	
+	public ChromeHelper() {
+		errCodeValidator = new BrowserErrorCodeValidator();
+	}
 	
 	public void openChrome() throws Exception {
 		int exitCode = getChromeWindow();
-		if (exitCode != 0) throw new Exception("Open Chrome should have status code 0");
+		errCodeValidator.validateErrorCode(exitCode);
 	}
 
 	private int getChromeWindow() throws ExecuteException, IOException {

@@ -1,4 +1,4 @@
-package org.skozlov.breed.utils.chrome;
+package org.skozlov.breed.utils;
 
 import org.sikuli.script.ObserveEvent;
 import org.sikuli.script.ObserverCallBack;

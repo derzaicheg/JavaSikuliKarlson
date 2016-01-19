@@ -1,7 +1,7 @@
 package org.skozlov.breed;
 
 import org.skozlov.breed.config.TestSettings;
-import org.skozlov.breed.drmtyperesolver.DrmTypeRunner;
+import org.skozlov.breed.matrixresolver.DrmTypeRunner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
